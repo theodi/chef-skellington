@@ -13,3 +13,10 @@ suites:
     run_list:
       - recipe[skellington::default]
     attributes:
+
+  - name: thighbone
+    run_list:
+      - recipe[skellington::default]
+    attributes:
+      ruby-ng:
+        ruby_version: 1.9.3
