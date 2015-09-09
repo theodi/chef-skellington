@@ -20,3 +20,10 @@ suites:
     attributes:
       ruby-ng:
         ruby_version: 1.9.3
+
+  - name: kneecap
+    run_list:
+      - recipe[skellington::default]
+    attributes:
+      ruby-ng:
+        ruby_version: 2.2
