@@ -7,3 +7,4 @@ depends 'ruby-ng'
 
 depends 'odi-pk'
 depends 'odi-users'
+depends 'odi-monitoring'
