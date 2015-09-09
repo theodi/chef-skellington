@@ -1,3 +1,4 @@
+include_recipe 'apt'
 include_recipe 'git'
 
 node['skellington']['dependencies'].each do |dependency|
