@@ -1,6 +1,6 @@
 include_recipe 'ruby-ng'
 
-if node['ruby-ng']['ruby_version'] < '2'
+if node['ruby-ng']['ruby_version'].to_s < '2'
   package 'ruby1.9.1-dev' do
     action :install
   end
