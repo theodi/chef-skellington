@@ -5,3 +5,5 @@ default['skellington']['dependencies'] = %w{
   libxml2-dev
   libxslt1-dev
 }
+
+default['ruby-ng']['ruby_version'] = '2.0'
