@@ -4,9 +4,12 @@ driver:
 
 provisioner:
   name: chef_zero
-
+  attributes:
+    user: skellington
+    
 platforms:
   - name: ubuntu-14.04
+
 
 suites:
   - name: skellington
