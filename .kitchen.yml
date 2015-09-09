@@ -6,6 +6,8 @@ provisioner:
   name: chef_zero
   data_bags_path: test/data_bags
   environments_path: test/environments
+  client_rb:
+    environment: skellington
   attributes:
     user: skellington
     envbuilder:
@@ -19,12 +21,8 @@ platforms:
 
 suites:
   - name: skellington
-    provisioner:
-      client_rb:
-        environment: skellington
     run_list:
       - recipe[skellington::default]
-    attributes:
 
   - name: thighbone
     run_list:
