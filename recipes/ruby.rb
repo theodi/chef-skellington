@@ -1,8 +1,15 @@
 include_recipe 'ruby-ng'
 
 if node['ruby-ng']['ruby_version'].to_s < '2'
-  package 'ruby1.9.1-dev' do
-    action :install
+  legacy_cruft = %w{
+    ruby1.9.1-dev
+    ruby-dev
+  }
+
+  legacy_cruft.each do |cruft|
+    package cruft do
+      action :install
+    end
   end
 else
   include_recipe 'ruby-ng::dev'
