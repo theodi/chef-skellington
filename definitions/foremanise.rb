@@ -16,7 +16,7 @@ define :foremanise, :params => {} do
       bundle exec foreman export \
         -a #{params[:name]} \
         -u #{params[:name]} \
-        -c worker=4,scheduler=1,web=1 \
+        -c #{params[:concurrency_string]} \
         upstart /tmp/init
     EOF
   end
