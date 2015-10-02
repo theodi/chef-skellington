@@ -14,3 +14,4 @@ default['chef_client']['cron']['hour'] = '*'
 default['chef_client']['cron']['minute'] = '*/10'
 
 default['deployment']['revision'] = 'CURRENT'
+default['deployment']['rack_env'] = 'production'
