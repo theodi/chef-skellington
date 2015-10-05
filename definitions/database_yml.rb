@@ -1,0 +1,12 @@
+define :database_yml  , :params => {} do
+  template "/home/#{params[:name]}/#{params[:fully_qualified_domain_name]}/shared/config/database.yml" do
+    action :create
+    variables(
+      :mysql_host     => node['mysql']['host'],
+      :mysql_database => node['mysql']['database'],
+      :mysql_username => node['mysql']['user'],
+      :mysql_password => node['mysql']['password'],
+      :mysql_pool     => node['mysql']['pool']
+    )
+  end
+end
