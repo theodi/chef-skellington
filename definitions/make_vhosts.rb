@@ -26,6 +26,7 @@ define :make_vhosts, :params => {} do
       :prefix             => begin node['deployment']['nginx']['prefix'] rescue nil end,
       :catch_and_redirect => begin node['catch_and_redirect'] rescue nil end,
       :precompiled_assets => begin node['precompile_assets'] rescue nil end,
+      :max_body_size      => begin node['max_body_size'] rescue nil end,
       :concurrency        => concurrency
     )
     action :create
