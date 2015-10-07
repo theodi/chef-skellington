@@ -8,6 +8,8 @@ default['skellington']['dependencies'] = %w{
 
 default['ruby-ng']['ruby_version'] = '2.0'
 
+default['github_org'] = 'theodi'
+
 default['chef_client']['init_style'] = 'none'
 default['chef_client']['cron']['use_cron_d'] = true
 default['chef_client']['cron']['hour'] = '*'
