@@ -27,13 +27,36 @@ suites:
   - name: thighbone
     run_list:
       - recipe[skellington::default]
+      - recipe[skellington::vhost_tester]
     attributes:
       ruby-ng:
         ruby_version: 1.9.3
+      fully_qualified_domain_name: thighbone.theodi.org
 
   - name: kneecap
     run_list:
       - recipe[skellington::default]
+      - recipe[skellington::vhost_tester]
     attributes:
+      fully_qualified_domain_name: kneecap.theodi.org
       ruby-ng:
         ruby_version: 2.2
+      deployment:
+        nginx:
+          prefix: staging
+
+  - name: sternum
+    run_list:
+      - recipe[skellington::dbconfig]
+    attributes:
+      user: shoulder_blade
+      fully_qualified_domain_name: sternum.io
+
+  - name: cranium
+    run_list:
+      - recipe[skellington::dbconfig]
+    attributes:
+      user: cranium
+      fully_qualified_domain_name: cranium.io
+      mysql:
+        username: skeletor
