@@ -18,5 +18,4 @@ default['chef_client']['cron']['minute'] = '*/10'
 default['deployment']['revision'] = 'CURRENT'
 default['deployment']['rack_env'] = 'production'
 
-default['mysql']['database'] = "#{node['mysql']['user']}"
 default['mysql']['pool'] = 5
