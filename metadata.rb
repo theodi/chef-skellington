@@ -1,5 +1,5 @@
 name 'skellington'
-version '0.1.2'
+version '0.1.14'
 
 depends 'chef-client'
 depends 'git'
