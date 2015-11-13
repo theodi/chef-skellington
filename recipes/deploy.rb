@@ -36,6 +36,7 @@ deploy_revision "/home/#{node['user']}/#{node['fully_qualified_domain_name']}" d
       precompile_assets do
         cwd current_release_directory
         user node['user']
+        rack_env node['deployment']['rack_env']
       end
     end
 
@@ -49,6 +50,17 @@ deploy_revision "/home/#{node['user']}/#{node['fully_qualified_domain_name']}" d
       cwd current_release_directory
       user node['user']
       fqdn node['fully_qualified_domain_name']
+    end
+  end
+
+  after_restart do
+    current_release_directory = release_path
+
+    if node['post_deploy_tasks']
+      post_deploy node['post_deploy_tasks'] do
+        cwd current_release_directory
+        user node['user']
+      end
     end
   end
 
