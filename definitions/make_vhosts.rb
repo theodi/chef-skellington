@@ -19,10 +19,17 @@ define :make_vhosts, :params => {} do
     if node.has_key? 'concurrency'
       concurrency = node['concurrency']
     end
+
+    no_x_forwarded = false
+    if node.has_key? 'no_x_forwarded'
+      no_x_forwarded = true
+    end
+
     variables(
       :servername         => node['user'],
       :port               => node['start_port'],
       :fqdn               => node['fully_qualified_domain_name'],
+      :no_x_forwarded     => no_x_forwarded,
       :prefix             => begin node['deployment']['nginx']['prefix'] rescue nil end,
       :catch_and_redirect => begin node['catch_and_redirect'] rescue nil end,
       :precompiled_assets => begin node['precompile_assets'] rescue nil end,
@@ -32,8 +39,13 @@ define :make_vhosts, :params => {} do
     action :create
   end
 
-  file '/etc/nginx/sites-enabled/default' do
-    action :delete
+  [
+    'default',
+    '000-default'
+  ].each do |vhost|
+    file "/etc/nginx/sites-enabled/#{vhost}" do
+      action :delete
+    end
   end
 
   link "/etc/nginx/sites-enabled/%s" % [
